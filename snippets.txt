@@ -14,3 +14,15 @@ posts: list[dict] = [
         "date_posted": "April 21, 2025",
     },
 ]
+
+## Home Template
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FastAPI Blog</title>
+  </head>
+  <body>
+    <h1>Home Page</h1>
+    <p>This is using a template!</p>
+  </body>
+</html>
