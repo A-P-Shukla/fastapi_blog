@@ -1,4 +1,4 @@
-# Python-generated files
+# Python
 __pycache__/
 *.py[oc]
 build/
@@ -6,8 +6,22 @@ dist/
 wheels/
 *.egg-info
 
-# Virtual environments
+# Virtual environment
 .venv
 
-#Database
+# Database
 blog.db
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Next.js
+frontend/.next/
+frontend/node_modules/
+frontend/.env*.local
+
+# Uploads
+static/profile_pics/*
+!static/profile_pics/default.jpg
