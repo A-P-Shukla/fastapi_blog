@@ -1,5 +1,16 @@
 import os
+import selectors
+import asyncio
 from collections.abc import AsyncGenerator
+
+# Windows uses ProactorEventLoop by default, which psycopg doesn't support.
+# Force SelectorEventLoop so async DB connections work correctly.
+if os.name == "nt":
+    asyncio.set_event_loop_policy(
+        asyncio.DefaultEventLoopPolicy()
+        if not hasattr(asyncio, "WindowsSelectorEventLoopPolicy")
+        else asyncio.WindowsSelectorEventLoopPolicy()
+    )
 
 os.environ["DATABASE_URL"] = (
     "postgresql+psycopg://bloguser:blogpass@localhost/test_blog"
